@@ -1,0 +1,14 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: microservicios01
+          uri: http://18.188.178.178:3000
+          predicates:
+            - Path=/api/**
+        - id: microservicio_materias
+          uri: http://18.188.178.178:8080
+          predicates:
+            - Path=/api/**
