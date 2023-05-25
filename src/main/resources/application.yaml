@@ -4,11 +4,22 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: microservicio_materias
+          uri: http://18.188.178.178:8080
+          predicates:
+            - Path=/api-subject/**
         - id: microservicios01
           uri: http://18.188.178.178:3000
           predicates:
             - Path=/api/**
-        - id: microservicio_materias
-          uri: http://18.188.178.178:8080
-          predicates:
-            - Path=/api/**
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - PUT
+              - POST
+              - DELETE
+              - OPTION
+              - PATCH
