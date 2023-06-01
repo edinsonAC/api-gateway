@@ -5,11 +5,11 @@ spring:
     gateway:
       routes:
         - id: microservicio_materias
-          uri: http://18.188.178.178:8080
+          uri: http://18.118.199.176:8080
           predicates:
             - Path=/api-subject/**
         - id: microservicios01
-          uri: http://18.188.178.178:3000
+          uri: http://18.118.199.176:3000
           predicates:
             - Path=/api/**
       globalcors:
