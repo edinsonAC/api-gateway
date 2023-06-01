@@ -8,10 +8,15 @@ spring:
           uri: http://18.118.199.176:8080
           predicates:
             - Path=/api-subject/**
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
         - id: microservicios01
           uri: http://18.118.199.176:3000
           predicates:
             - Path=/api/**
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
         cors-configurations:
           "[/**]":
