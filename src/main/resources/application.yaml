@@ -11,12 +11,20 @@ spring:
           filters:
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 
+        - id: microservicios03
+          uri: https://classroomprojectsts-production-bbb6.up.railway.app
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
         - id: microservicios01
           uri: http://18.118.199.176:3000
           predicates:
             - Path=/api/**
           filters:
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
       globalcors:
         cors-configurations:
           "[/**]":
